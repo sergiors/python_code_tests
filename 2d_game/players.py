@@ -21,11 +21,11 @@ class Player:
     def move_up(self):
         return self.pos - Vec2D(0, 1)
 
+    def move_right(self):
+        return self.pos + Vec2D(1, 0)
+
     def move_down(self):
         return self.pos + Vec2D(0, 1)
 
     def move_left(self):
         return self.pos - Vec2D(1, 0)
-
-    def move_right(self):
-        return self.pos + Vec2D(1, 0)
