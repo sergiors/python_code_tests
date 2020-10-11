@@ -1,19 +1,31 @@
 import pygame
 
-pygame.init()
+from pygame.locals import QUIT
 
-screen = pygame.display.set_mode([500, 500])
 
-running = True
+class Game:
+    running = False
 
-while running:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            running = False
+    def __init__(self):
+        pygame.init()
 
-    screen.fill((255, 255, 255))
+        self.screen = pygame.display.set_mode([500, 500])
 
-    pygame.draw.circle(screen, (0, 0, 255), (250, 250), 75)
-    pygame.display.flip()
+    def run(self):
+        self.running = True
 
-pygame.quit()
+        while self.running:
+            for event in pygame.event.get():
+                if event.type == QUIT:
+                    self.running = False
+
+            self.screen.fill((255, 255, 255))
+
+            pygame.display.flip()
+
+        if self.running is False:
+            pygame.quit()
+
+
+game = Game()
+game.run()
